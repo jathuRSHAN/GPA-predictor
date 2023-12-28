@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h5>File Upload</h5>
+    <hr>
+
+    {% if message %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="custom-file-upload">
+                <input type="file" id="file-input" name="file" accept=".csv,.xlsx" onchange="updateFileNameLabel()"/>
+            </label>
+        </div>
+        <span id="file-name-label"> </span>
+        <br>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    {% if filename %}
+        <hr>
+        <p>File uploaded: {{ filename }}</p>
+        <a href="{{ url_for('download_file', filename=filename) }}" class="btn btn-success">Download File</a>
+        <a href="{{ url_for('view_file', filename=filename) }}" class="btn btn-primary" style="background-color: red; color: white;">View File</a>
+    
+    {% endif %}
+
+    <script>
+        function updateFileNameLabel() {
+            var fileInput = document.getElementById('file-input');
+            var fileNameLabel = document.getElementById('file-name-label');
+            fileNameLabel.innerHTML = fileInput.files[0].name;
+        }
+    </script>
+{% endblock %}

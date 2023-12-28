@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <h5>Predicted table</h5>
+    <a href="{{ url_for('display_dashboard') }}" class="btn btn-primary mb-3">Go to Dashboard</a>
+    <div class="table-scroll table-responsive">
+        {{ table | safe }}
+    </div>
+
+{% endblock %}

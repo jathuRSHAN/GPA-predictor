@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h4 class="card-title" >Enter the feature values for prediction</h4>
+<small class="text-danger"><b>Please enter input in integers and floats only within 0 and 5.</b></small>
+<hr>
+	<form action="{{ url_for('predict')}}" method="POST">
+		<div class="form-group">
+			<label for="GENDER">Gender</label>
+			<select name="gender" id="gender" class="form-control">
+				<option value="0">Male</option>
+				<option value="1">Female</option>
+			</select>			
+		</div>
+		<div class="form-group">
+			<label for="Tm">Time Management
+			</label>
+			<input type="number" name="Tm" step="0.01" class="form-control" id="Tm" placeholder="Time Management(score)" min="0" max="5" required>
+		</div>
+		<div class="form-group">
+			<label for="Motivation">Motivation</label>
+			<input type="number" name="Motivation" step="0.01" class="form-control" id="Motivation" placeholder="Motivation(Score)" min="0" max="5" required>
+		</div>
+		<div class="form-group">
+			<label for="Efficacy">Efficacy/ Condfidance</label>
+			<input type="number" name="Efficacy" step="0.01" class="form-control" id="Efficacy" placeholder="Efficacy/ Condfidance(score)" min="0" max="5" required>
+		</div>
+		<div class="form-group">
+			<label for="SocialBehavior">Social Behavior</label>
+			<input type="number" name="SocialBehavior" step="0.01" class="form-control" id="SocialBehavior" placeholder="Social Behavior" min="0" max="5" required>
+		</div>
+		<div class="form-group">
+			<label for="RLB">Resources Learning Behavior</label>
+			<input type="number" name="RLB" step="0.01" class="form-control" id="RLB" placeholder="Resources Learning Behavior" min="0" max="5" required>
+		</div>
+		<div class="form-group">
+			<label for="APE">Academic Performance Evaluation </label>
+			<input type="number" name="APE" step="0.01" class="form-control" id="APE" placeholder="Academic Performance Evaluation(score)" min="0" max="5" required>
+		</div>
+		<div class="form-group">
+			<label for="Curiosity">Curiosity</label>
+			<input type="number" name="Curiosity" step="0.01" class="form-control" id="Curiosity" placeholder="Curiosity" min="0" max="5" required>
+		</div>
+		<input type="submit" class="btn btn-primary btn-lg" value="Predict">
+		<input type="reset" class="btn btn-info btn-lg" value="Reset">
+	</form>
+{% endblock content %}
