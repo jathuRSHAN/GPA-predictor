@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 
 app = Flask(__name__)
 
-# Importing the machine Learning model
+# Importing the machine Learning model ok
 model = pickle.load(open('regressor_CGPA.pkl', 'rb'))
 
 # Home End Point
